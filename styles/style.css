@@ -1,5 +1,304 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-color: var(--background-color);
+  color: var(--main-text-color);
+  font-family: var(--font), Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-image: url(../images/cover-image-dark.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-inline-size: 375px;
+  overflow: auto;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  min-block-size: 100vh;
+  padding: var(--padding-size);
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  block-size: 25px;
+  inline-size: 25px;
+  inset-inline-end: var(--padding-size);
+  inset-block-start: var(--padding-size);
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  block-size: 25px;
+  inline-size: 25px;
+  inset-inline-start: var(--padding-size);
+  inset-block-end: var(--padding-size);
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+}
+
+.header__decoration-lightbulb {
+  position: absolute;
+  inset-inline-end: calc(var(--padding-size) + 28px);
+  inset-block-start: var(--padding-size);
+  color: var(--accent-color);
+  line-height: 25px;
+}
+
+.header__decoration-lightbulb::after {
+  content: '';
+  position: absolute;
+  block-size: 10px;
+  inline-size: 10px;
+  margin: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__title {
+  justify-self: start;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0 var(--title-shadow-color);
+  color: var(--title-text-color);
+}
+
+.header__text {
+  justify-self: end;
+  white-space: pre-line;
+  font-weight: 700;
+  line-height: 130%;
+  inline-size: clamp(22.188rem, 21.651rem + 2.29vw, 22.75rem);
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--secondary-text-color);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-item {
+  block-size: 26px;
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--button-color);
+  padding: 0 13px;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-outline-color);
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--button-color);
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--button-color);
+  pointer-events: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 var(--padding-size);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 130%;
+}
+
+.content-heading,
+.item-heading,
+.subitem-heading {
+  font-size: 18px;
+  color: var(--secondary-text-color);
+}
+
+.content-heading {
+  color: var(--button-color);
+}
+
+.subitem-heading {
+  font-weight: 400;
+}
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-list_item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  text-shadow: 2px 2px var(--accent-color);
+}
+
+.link:hover {
+  border-block-end: 1px solid var(--main-text-color);
+}
+
+.link:focus-visible {
+  outline: 1px solid var(--main-text-color);
+  border: none;
+}
+
+.gallery,
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-size);
+}
+
+.gallery-image {
+  inline-size: 100%;
+  block-size: 100%;
+  display: block;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-block-size: 100vh;
+  padding: var(--padding-size);
+  position: relative;
+}
+
+.footer__title {
+  justify-self: start;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 82.5%;
+  text-shadow: 4px 4px 0 var(--title-shadow-color);
+  color: var(--title-text-color);
+}
+
+@media (min-width: 768px) {
+
+  :root {
+    --padding-size: 20px;
+  }
+
+  .page {
+    min-inline-size: 768px;
+  }
+
+  .page-container {
+    gap: 60px;
+  }
+
+  .header__title {
+    position: relative;
+    inset-inline-start: -20px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__text {
+    inline-size: clamp(22.75rem, -1.063rem + 49.61vw, 30.688rem);
+  }
+
+  .main {
+    gap: 80px;
+  }
+
+  .content-two_columns {
+    flex-direction: row;
+  }
+
+  .content-heading {
+    inline-size: clamp(14.75rem, -0.063rem + 30.86vw, 19.688rem);
+  }
+
+  .content-two_columns .content-list {
+    inline-size: clamp(29.5rem, -3.688rem + 69.14vw, 40.563rem);
+  }
+
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: clamp(12rem, -0.75rem + 26.56vw, 16.25rem) clamp(
+        14.375rem,
+        -1.563rem + 33.2vw,
+        19.688rem
+      ) clamp(19.875rem, -0.75rem + 42.97vw, 26.75rem);
+  }
+
+  .gallery-image {
+    object-fit: cover;
+  }
+
+  .gallery-image_long {
+    grid-column-end: span 2;
+  }
+
+  .gallery-image_tall {
+    grid-row-end: span 2;
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .page {
+    min-inline-size: 1024px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .content-three_columns {
+    flex-direction: row;
+  }
+
+  .content-three_columns .content-list_item {
+    min-inline-size: 315px;
+  }
 }
