@@ -311,7 +311,7 @@
     grid-template-columns: 315px 1fr;
   }
 
-  .content-why .content-list, .content-how .content-list  {
+  .content-why .content-list, .content-how .content-list {
     inline-size: 100%;
   }
 
