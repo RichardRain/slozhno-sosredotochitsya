@@ -110,6 +110,7 @@
   color: var(--button-color);
   padding: 0 13px;
   text-transform: lowercase;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
@@ -174,6 +175,10 @@
 
 .link:hover {
   border-block-end: 1px solid var(--main-text-color);
+}
+
+.link:focus {
+  outline: none;
 }
 
 .link:focus-visible {
